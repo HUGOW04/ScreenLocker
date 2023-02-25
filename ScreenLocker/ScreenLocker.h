@@ -8,5 +8,5 @@
 LRESULT CALLBACK WindowProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 
 MSG message;
-HWND hWnd, hTitle, hDescription, hButtonOK, hEdit;
+HWND hWnd, hTitle, hDescription, hButtonOK, hEdit, hText;
 HFONT hFont;
