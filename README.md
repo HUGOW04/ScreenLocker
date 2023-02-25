@@ -4,7 +4,13 @@ A lock screen is a computer user interface element used by various operating sys
 
 Depending on the operating system and device type, a lock screen can range from a simple login screen, to an overview screen with the current date and time, weather, recent notifications, playback controls for media being played in the background (typically music), shortcuts to applications (such as the camera), and optionally, the contact information of the device's owner (which can be used in the event that the device is lost or stolen, or during a medical emergency).
 
-![Capture](https://user-images.githubusercontent.com/54809176/187265741-a202ae70-dbc9-43b6-94db-acecd619fb17.PNG)
+## Password
+```
+1234
+
+```
+
+![image](https://user-images.githubusercontent.com/54809176/221354969-986c1d80-ab36-4887-8898-aabfb961c0b3.png)
 
 ## Legal warning
 Software can by use only to educationals targets. If you will use this like real virus, you could go to jail. Author do not responsible for the misuse of the software by others.
