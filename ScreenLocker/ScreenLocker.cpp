@@ -49,6 +49,11 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance,
 		120, hWnd, nullptr, nullptr, nullptr);
 	SendMessageW(hDescription, WM_SETFONT, WPARAM(hNormalFont), TRUE);
 
+	hText = CreateWindowExA(0, "EDIT", "Password", WS_CHILD | WS_VISIBLE, 870, 450,
+		200,
+		20, hWnd, nullptr, nullptr, nullptr);
+	SendMessageW(hDescription, WM_SETFONT, WPARAM(hNormalFont), TRUE);
+
 	hButtonOK = CreateWindowExW(0, L"Button", L"Unlock", WS_CHILD | WS_VISIBLE, GetSystemMetrics(SM_CXSCREEN) - 1000, GetSystemMetrics(SM_CYSCREEN) - 550, 100, 50, hWnd, (HMENU)BUTTON, nullptr, nullptr);
 	SendMessageA(hButtonOK, WM_SETFONT, (WPARAM)hNormalFont, TRUE);
 
@@ -73,7 +78,22 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		switch (wParam)
 		{
 		case BUTTON:
-			PostQuitMessage(0);
+			try
+			{
+				std::wstring title;
+				title.reserve(GetWindowTextLength(hEdit) + 1);
+				GetWindowText(hText, const_cast<WCHAR*>(title.c_str()), title.capacity());
+				long value = std::stoi(title);
+				if (value == 1234)
+				{
+					PostQuitMessage(0);
+				}
+			}
+			catch(...)
+			{
+
+			}
+			
 		}
 	case WM_CLOSE:
 		return 0;
@@ -85,3 +105,4 @@ LRESULT CALLBACK WindowProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	}
 	return DefWindowProcA(hWnd, msg, wParam, lParam);
 }
+
